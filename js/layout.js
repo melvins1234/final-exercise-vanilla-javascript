@@ -76,6 +76,7 @@ function hasClass(elem, className){
     return elem.className.split(' ').indexOf(className) > -1;
 }
 
+let bool;
 document.addEventListener('click', function(e){
     
     let thatVal, that;
@@ -119,8 +120,15 @@ document.addEventListener('click', function(e){
         }
     }else if(hasClass(e.target, 'todo__dark-mode')){
         that = e.target;
+        bool = !(localStorage.darkMode === 'true' ? true : false);
+        localStorage.setItem('darkMode', bool);
         this.body.classList.toggle('dark-mode');
         ['fa-moon', 'fa-sun'].map(v=> that.classList.toggle(v) )
 
     }
 });
+bool = localStorage.darkMode === 'true' ? true : false;
+if(bool){
+    document.body.classList.toggle('dark-mode');
+    ['fa-moon', 'fa-sun'].map(v=> document.querySelector('.todo__dark-mode').classList.toggle(v) )
+}
