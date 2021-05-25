@@ -55,13 +55,16 @@ body{
         button{
             display: block;
             margin: 5px;
-            height: 20px;
-            width: 20px;
-            padding: 0;
+            height: 21px;
+            width: 21px;
+            padding: 0px 0px 1px 1px;
             border-radius: 50%;
             background-color: unset;
             color: #909398;
             border: 1px solid #909398;
+        }
+        button:active{
+            border: 1px solid #b2b4bb;
         }
         input{
             color: #909398;
