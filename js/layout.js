@@ -1,5 +1,9 @@
 `use strict`;
 
+window.onload = function(){
+    createTxt.value = '';
+}
+
 const createBtn = document.getElementById("create-btn"),
     createTxt = document.getElementById('create-txt');
 
@@ -21,6 +25,8 @@ if(JSON.parse(localStorage.getItem('todolist'))){
         <button id="delete" class="todo__list__delete"><i class="far fa-trash-alt"></i></button>`;
         todoList.appendChild(li);
     });
+
+    document.querySelector('.todo__list__footer--items-left').textContent = `${todoLists.length} items left`;
 }
 
 createBtn.addEventListener("mouseover", function(){
@@ -40,7 +46,7 @@ createBtn.addEventListener('click', function(e){
         <input type="checkbox" id="checkbox" />
         <label for="checkbox"></label>
     </div>
-    <input type="text" value="${element}" disabled>
+    <input type="text" value="${createTxt.value}" disabled>
     <button id="edit" class="todo__list__edit">Edit</button>
     <button id="delete" class="todo__list__delete"><i class="far fa-trash-alt"></i></button>`;
     
@@ -51,6 +57,7 @@ createBtn.addEventListener('click', function(e){
         todoLists.push(createTxt.value);
         localStorage.setItem('todolist', JSON.stringify(todoLists));
         createTxt.value = '';
+        document.querySelector('.todo__list__footer--items-left').textContent = `${todoLists.length} items left`;
     }
 })
 
@@ -66,6 +73,15 @@ function hasClass(elem, className){
     return elem.className.split(' ').indexOf(className) > -1;
 }
 
-window.onload = function(){
-    createTxt.value = '';
-}
+document.addEventListener('click', function(e){
+    if(hasClass(e.target, 'todo__list__delete')){
+        e.preventDefault();
+
+        let nodeIndex = liElem => [...liElem.parentNode.children].indexOf(liElem);
+        
+        todoLists.splice(nodeIndex(e.target.parentNode), 1);
+        localStorage.setItem('todolist', JSON.stringify(todoLists));
+        e.target.parentNode.remove();
+        document.querySelector('.todo__list__footer--items-left').textContent = `${todoLists.length} items left`;
+    }
+});
