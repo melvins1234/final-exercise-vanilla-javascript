@@ -32,7 +32,7 @@ body {
   left: 0;
   background-image: url("images/mountains.jpg");
   height: 280px;
-  width: 100vw;
+  width: 100%;
   background-position-y: 27%;
   background-position-x: center;
   -webkit-transform: scaleX(-1);
@@ -87,6 +87,7 @@ body {
   background-color: unset;
   color: #909398;
   border: 1px solid #909398;
+  cursor: pointer;
 }
 
 .todo--create button:active {
@@ -114,6 +115,8 @@ body {
   padding: 0;
   list-style: none;
   margin-top: 10;
+  height: 300px;
+  overflow-y: auto;
 }
 
 .todo__list ol li {
@@ -210,5 +213,9 @@ body {
   margin-top: auto;
   max-width: inherit;
   text-align: center;
+}
+
+.create-txt--invalid {
+  border: 1px solid red !important;
 }
 /*# sourceMappingURL=style.css.map */
