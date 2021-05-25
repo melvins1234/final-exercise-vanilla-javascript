@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+    font-family: Roboto;
+    font-size: .95em;
+    color: #737579;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(48, 172, 221);
+}
+a:active{
+    color: rgb(19, 132, 177);
+}
+body{
+    background-color: #f3f4f6;
+}
+.background-top{
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left:0;
+    background-image: url("images/mountains.jpg");
+    height: 250px;
+    width: 100vw;
+    background-position-y: 27%;
+    background-position-x: center;
+    transform: scaleX(-1);
+    &--inner{
+        height: inherit;
+        width: inherit;
+        background: linear-gradient(90deg, rgba(#0064fc, 0.5), rgba(#9b00ff, 0.5));
+    }
+}
+.todo{
+    display: flex;
+    flex-direction: column;
+    max-width: 420px;
+    margin: 0 auto;
+    height: 100vh;
+    h2{
+        font-size: 2.2em;
+        margin: 70px 0;
+        color: #fff;
+        letter-spacing: 0.3em;
+    }
+    &--create{
+        margin-bottom: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        height: 30px;
+        padding: 5px;
+        display: flex;
+        button{
+            display: block;
+            margin: 5px;
+            height: 20px;
+            width: 20px;
+            padding: 0;
+            border-radius: 50%;
+            background-color: unset;
+            color: #909398;
+            border: 1px solid #909398;
+        }
+        input{
+            color: #909398;
+            width: calc(100% - 50px);
+            border: 0;
+        }
+        input:focus{
+            outline: none;
+        }
+    }
+    &__list{
+        margin: 10px 0;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        ol{
+            padding: 0;
+            list-style: none;
+            margin-top: 10;
+            li{
+                display: flex;
+                input{
+                    color:inherit;
+                    width: 70%;
+                    border: 0;
+                }
+                input:focus{
+                    outline: none;
+                }
+                button{
+                    background-color: rgb(18, 160, 216);
+                    border: 0px;
+                    color: #fff;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                }
+                button#edit{
+                    margin-left: auto;
+                }
+                button#delete{
+                    margin-left: 5px;
+                    i{
+                    color: #fff;
+                    }
+                }
+                button#edit:hover{
+                    background-color: rgb(48, 172, 221);
+                }
+                button#edit:active{
+                    background-color: rgb(19, 132, 177);
+                }
+                button#delete:hover{
+                    background-color: rgb(250, 114, 114);
+                }
+                button#delete:active{
+                    background-color: rgb(255, 88, 88);
+                }
+            }
+        }
+        &__footer{
+            margin-top: 20px;
+            display: flex;
+            &--clear-completed{
+                margin-left: auto;
+            }
+        }
+    }
+    &__read{
+        margin: 10px 0;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        a{
+            margin: 0 15px;
+        }
+        a.active{
+            
+        }
+    }
+    &__reorder{
+        height: 80px;
+        line-height: 75px;
+        text-align: center;
+    }
+    &__reorder:hover{
+        border: solid 1px #737579;
+        border-style: dashed;
+    }
+    &__footer{
+        margin-top:auto;
+        max-width: inherit;
+        text-align: center;
+    } 
+}

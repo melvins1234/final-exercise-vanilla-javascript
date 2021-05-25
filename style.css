@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  font-family: Roboto;
+  font-size: .95em;
+  color: #737579;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #30acdd;
+}
+
+a:active {
+  color: #1384b1;
+}
+
+body {
+  background-color: #f3f4f6;
+}
+
+.background-top {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("images/mountains.jpg");
+  height: 250px;
+  width: 100vw;
+  background-position-y: 27%;
+  background-position-x: center;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.background-top--inner {
+  height: inherit;
+  width: inherit;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 100, 252, 0.5)), to(rgba(155, 0, 255, 0.5)));
+  background: linear-gradient(90deg, rgba(0, 100, 252, 0.5), rgba(155, 0, 255, 0.5));
+}
+
+.todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 420px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.todo h2 {
+  font-size: 2.2em;
+  margin: 70px 0;
+  color: #fff;
+  letter-spacing: 0.3em;
+}
+
+.todo--create {
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  height: 30px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.todo--create button {
+  display: block;
+  margin: 5px;
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: unset;
+  color: #909398;
+  border: 1px solid #909398;
+}
+
+.todo--create input {
+  color: #909398;
+  width: calc(100% - 50px);
+  border: 0;
+}
+
+.todo--create input:focus {
+  outline: none;
+}
+
+.todo__list {
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.todo__list ol {
+  padding: 0;
+  list-style: none;
+  margin-top: 10;
+}
+
+.todo__list ol li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.todo__list ol li input {
+  color: inherit;
+  width: 70%;
+  border: 0;
+}
+
+.todo__list ol li input:focus {
+  outline: none;
+}
+
+.todo__list ol li button {
+  background-color: #12a0d8;
+  border: 0px;
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.todo__list ol li button#edit {
+  margin-left: auto;
+}
+
+.todo__list ol li button#delete {
+  margin-left: 5px;
+}
+
+.todo__list ol li button#delete i {
+  color: #fff;
+}
+
+.todo__list ol li button#edit:hover {
+  background-color: #30acdd;
+}
+
+.todo__list ol li button#edit:active {
+  background-color: #1384b1;
+}
+
+.todo__list ol li button#delete:hover {
+  background-color: #fa7272;
+}
+
+.todo__list ol li button#delete:active {
+  background-color: #ff5858;
+}
+
+.todo__list__footer {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.todo__list__footer--clear-completed {
+  margin-left: auto;
+}
+
+.todo__read {
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.todo__read a {
+  margin: 0 15px;
+}
+
+.todo__reorder {
+  height: 80px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.todo__reorder:hover {
+  border: solid 1px #737579;
+  border-style: dashed;
+}
+
+.todo__footer {
+  margin-top: auto;
+  max-width: inherit;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
