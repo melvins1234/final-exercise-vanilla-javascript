@@ -74,14 +74,37 @@ function hasClass(elem, className){
 }
 
 document.addEventListener('click', function(e){
+    
+    let thatVal;
+    let nodeIndex = liElem => [...liElem.parentNode.children].indexOf(liElem);
+
     if(hasClass(e.target, 'todo__list__delete')){
         e.preventDefault();
 
-        let nodeIndex = liElem => [...liElem.parentNode.children].indexOf(liElem);
-        
         todoLists.splice(nodeIndex(e.target.parentNode), 1);
         localStorage.setItem('todolist', JSON.stringify(todoLists));
         e.target.parentNode.remove();
         document.querySelector('.todo__list__footer--items-left').textContent = `${todoLists.length} items left`;
+    }else if(hasClass(e.target, 'todo__list__edit')){
+        e.preventDefault();
+        let that = e.target;
+            thatVal = that.previousElementSibling.value;
+
+        ['todo__list__edit', 'todo__list__save'].map(v=> that.classList.toggle(v) )
+        that.textContent = `Save`;
+        that.previousElementSibling.toggleAttribute('disabled');
+
+    }else if(hasClass(e.target, 'todo__list__save')){
+        e.preventDefault();
+        let that = e.target;
+
+        ['todo__list__edit', 'todo__list__save'].map(v=> that.classList.toggle(v) )
+        that.textContent = `Edit`;
+        that.previousElementSibling.toggleAttribute('disabled');
+
+        if(thatVal !== that.previousElementSibling.value){
+            todoLists[nodeIndex(that.parentNode)] = that.previousElementSibling.value;
+            localStorage.setItem('todolist', JSON.stringify(todoLists));
+        }
     }
 });
