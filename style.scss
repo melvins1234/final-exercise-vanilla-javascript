@@ -8,10 +8,13 @@ a{
     text-decoration: none;
 }
 a:hover{
-    color: rgb(48, 172, 221);
+    color: rgb(19, 132, 177);
 }
 a:active{
-    color: rgb(19, 132, 177);
+    color: rgb(48, 172, 221);   
+}
+a.selected{
+    color: rgb(48, 172, 221);   
 }
 body{
     background-color: #f3f4f6;
@@ -22,7 +25,7 @@ body{
     top: 0;
     left:0;
     background-image: url("images/mountains.jpg");
-    height: 250px;
+    height: 280px;
     width: 100vw;
     background-position-y: 27%;
     background-position-x: center;
@@ -85,10 +88,14 @@ body{
             list-style: none;
             margin-top: 10;
             li{
+                width: calc(100%-5px);
+                padding: 5px;
+                background-color: #f3f4f6;
                 display: flex;
+                border-radius: 5px;
                 input{
-                    color:inherit;
-                    width: 70%;
+                    background-color: inherit;
+                    width: 300px;
                     border: 0;
                 }
                 input:focus{

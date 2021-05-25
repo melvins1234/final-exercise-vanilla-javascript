@@ -10,11 +10,15 @@ a {
 }
 
 a:hover {
-  color: #30acdd;
+  color: #1384b1;
 }
 
 a:active {
-  color: #1384b1;
+  color: #30acdd;
+}
+
+a.selected {
+  color: #30acdd;
 }
 
 body {
@@ -27,7 +31,7 @@ body {
   top: 0;
   left: 0;
   background-image: url("images/mountains.jpg");
-  height: 250px;
+  height: 280px;
   width: 100vw;
   background-position-y: 27%;
   background-position-x: center;
@@ -113,14 +117,18 @@ body {
 }
 
 .todo__list ol li {
+  width: calc(100%-5px);
+  padding: 5px;
+  background-color: #f3f4f6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-radius: 5px;
 }
 
 .todo__list ol li input {
-  color: inherit;
-  width: 70%;
+  background-color: inherit;
+  width: 300px;
   border: 0;
 }
 
