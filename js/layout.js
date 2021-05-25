@@ -13,17 +13,20 @@ let todoList = document.querySelector('.todo__list ol'),
 if(JSON.parse(localStorage.getItem('todolist'))){
     todoLists = JSON.parse(localStorage.getItem('todolist'));
 
+    let index = 0;
     todoLists.forEach(element => {
         let li = document.createElement('li');
         li.innerHTML = `
         <div class="round-checkbox">
-            <input type="checkbox" id="checkbox" />
-            <label for="checkbox"></label>
+            <input type="checkbox" id="checkbox${index}" />
+            <label for="checkbox${index}"></label>
         </div>
         <input type="text" value="${element}" disabled>
         <button id="edit" class="todo__list__edit">Edit</button>
         <button id="delete" class="todo__list__delete"><i class="far fa-trash-alt"></i></button>`;
         todoList.appendChild(li);
+
+        index++;
     });
 
     document.querySelector('.todo__list__footer--items-left').textContent = `${todoLists.length} items left`;
@@ -43,8 +46,8 @@ createBtn.addEventListener('click', function(e){
     let li = document.createElement('li');
     li.innerHTML = `
     <div class="round-checkbox">
-        <input type="checkbox" id="checkbox" />
-        <label for="checkbox"></label>
+        <input type="checkbox" id="checkbox${todoLists.length}" />
+        <label for="checkbox${todoLists.length}"></label>
     </div>
     <input type="text" value="${createTxt.value}" disabled>
     <button id="edit" class="todo__list__edit">Edit</button>
@@ -75,7 +78,7 @@ function hasClass(elem, className){
 
 document.addEventListener('click', function(e){
     
-    let thatVal;
+    let thatVal, that;
     let nodeIndex = liElem => [...liElem.parentNode.children].indexOf(liElem);
 
     if(hasClass(e.target, 'todo__list__delete')){
@@ -93,6 +96,14 @@ document.addEventListener('click', function(e){
         ['todo__list__edit', 'todo__list__save'].map(v=> that.classList.toggle(v) )
         that.textContent = `Save`;
         that.previousElementSibling.toggleAttribute('disabled');
+        that.previousElementSibling.focus();
+
+        var len = thatVal.length;
+              
+        if (that.previousElementSibling.setSelectionRange) {
+            that.previousElementSibling.focus();
+            that.previousElementSibling.setSelectionRange(len, len);
+        }
 
     }else if(hasClass(e.target, 'todo__list__save')){
         e.preventDefault();
@@ -106,5 +117,10 @@ document.addEventListener('click', function(e){
             todoLists[nodeIndex(that.parentNode)] = that.previousElementSibling.value;
             localStorage.setItem('todolist', JSON.stringify(todoLists));
         }
+    }else if(hasClass(e.target, 'todo__dark-mode')){
+        that = e.target;
+        this.body.classList.toggle('dark-mode');
+        ['fa-moon', 'fa-sun'].map(v=> that.classList.toggle(v) )
+
     }
 });
