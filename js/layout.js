@@ -11,9 +11,14 @@ if(JSON.parse(localStorage.getItem('todolist'))){
 
     todoLists.forEach(element => {
         let li = document.createElement('li');
-        li.innerHTML = `<input type="text" value="${element}" disabled>
+        li.innerHTML = `
+        <div class="round-checkbox">
+            <input type="checkbox" id="checkbox" />
+            <label for="checkbox"></label>
+        </div>
+        <input type="text" value="${element}" disabled>
         <button id="edit" class="todo__list__edit">Edit</button>
-        <button id="delete" onclick="e.preventDefault();" class="todo__list__delete"><i class="far fa-trash-alt"></i></button>`;
+        <button id="delete" class="todo__list__delete"><i class="far fa-trash-alt"></i></button>`;
         todoList.appendChild(li);
     });
 }
@@ -30,9 +35,14 @@ createBtn.addEventListener('click', function(e){
     e.preventDefault();
 
     let li = document.createElement('li');
-    li.innerHTML = `<input type="text" value="${createTxt.value}">
+    li.innerHTML = `
+    <div class="round-checkbox">
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox"></label>
+    </div>
+    <input type="text" value="${element}" disabled>
     <button id="edit" class="todo__list__edit">Edit</button>
-    <button id="delete" onclick="e.preventDefault();" class="todo__list__delete"><i class="far fa-trash-alt"></i></button>`;
+    <button id="delete" class="todo__list__delete"><i class="far fa-trash-alt"></i></button>`;
     
     if(createTxt.value === '')
         createTxt.classList.add('create-txt--invalid');
