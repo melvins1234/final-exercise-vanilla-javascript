@@ -203,6 +203,7 @@ body {
 
 .todo__list ol li button#delete i {
   color: #fff;
+  pointer-events: none;
 }
 
 .todo__list ol li button#edit:hover {
