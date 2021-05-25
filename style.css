@@ -9,6 +9,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  background-color: inherit;
+}
+
 a:hover {
   color: #1384b1;
 }
@@ -23,6 +27,18 @@ a.selected {
 
 body {
   background-color: #f3f4f6;
+}
+
+body.dark-mode {
+  background: RGBa(30, 30, 30, 0.9) !important;
+}
+
+body.dark-mode input {
+  color: #fff;
+}
+
+body.dark-mode section:not(.background-top), body.dark-mode li, body.dark-mode nav, body.dark-mode .round-checkbox input[type="checkbox"]:checked + label {
+  background: RGBa(30, 30, 30, 0.9) !important;
 }
 
 .background-top {
@@ -64,6 +80,20 @@ body {
   margin: 70px 0;
   color: #fff;
   letter-spacing: 0.3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo h2 i {
+  cursor: pointer;
+  color: #fff;
 }
 
 .todo--create {
@@ -87,6 +117,7 @@ body {
   background-color: unset;
   color: #909398;
   border: 1px solid #909398;
+  cursor: pointer;
 }
 
 .todo--create button:active {
@@ -114,6 +145,8 @@ body {
   padding: 0;
   list-style: none;
   margin-top: 10;
+  height: 300px;
+  overflow-y: auto;
 }
 
 .todo__list ol li {
@@ -178,6 +211,10 @@ body {
   border: 0;
 }
 
+.todo__list ol li input[type="text"]:disabled {
+  background-color: transparent;
+}
+
 .todo__list ol li input:focus {
   outline: none;
 }
@@ -187,7 +224,9 @@ body {
   border: 0px;
   color: #fff;
   border-radius: 4px;
-  padding: 5px 10px;
+  padding: 5px;
+  cursor: pointer;
+  width: 44px;
 }
 
 .todo__list ol li button#edit {
@@ -200,6 +239,7 @@ body {
 
 .todo__list ol li button#delete i {
   color: #fff;
+  pointer-events: none;
 }
 
 .todo__list ol li button#edit:hover {
@@ -257,5 +297,9 @@ body {
   margin-top: auto;
   max-width: inherit;
   text-align: center;
+}
+
+.create-txt--invalid {
+  border: 1px solid red !important;
 }
 /*# sourceMappingURL=style.css.map */
